@@ -4,15 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using GoogleMobileAds.Api;
 
 
 public class TextDisplay : MonoBehaviour
 {
+
     [SerializeField] public TMP_Text _text;
-
+    private InterstitialAd interstitial;
     public float d_color;
-
-
+    public GameObject modoru;
 
     public void Update()
     {
@@ -23,9 +24,12 @@ public class TextDisplay : MonoBehaviour
        
 
     }
-    public void Move()
+
+	public void Move()
     {
-        SceneManager.LoadScene("TitleScene");
+        modoru.SetActive(true);
 
     }
+
+
 }
