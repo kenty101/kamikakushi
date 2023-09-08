@@ -30,7 +30,7 @@ public class ChoiceMove : MonoBehaviour
     public GameObject[] iyas;
     public GameObject Open;
     public GameObject kakunin;
-    public GameObject koukoku;
+
     [SerializeField] AudioClip aclip;
     [SerializeField] AudioClip bclip;
     [SerializeField] AudioClip cclip;
@@ -51,7 +51,6 @@ public class ChoiceMove : MonoBehaviour
     Tarou tarou;
     Timer timer;
     Memo memo;
-    AdmobLibrary admoblibrary;
  
     public int a = 0;
     public int b = 2;
@@ -78,34 +77,14 @@ public class ChoiceMove : MonoBehaviour
         black = GameObject.Find("Blackout").GetComponent<Black>();
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         memo = GameObject.Find("Textmemo").GetComponent<Memo>();
-        admoblibrary = GameObject.Find("koukoku").GetComponent<AdmobLibrary>();
-
     }
     public void hiraku()
     {
-        admoblibrary.ShowReward();
-
-        koukoku.SetActive(false);
-
         Open.SetActive(true);
     }
     public void shimeru()
     {
         Open.SetActive(false);
-    }
-    public void kaku()
-    {
-        soundManager.PlaySe(eclip);
-
-        koukoku.SetActive(true);
-
-    }
-    public void tojiru()
-    {
-        soundManager.PlaySe(eclip);
-
-        koukoku.SetActive(false);
-
     }
     public void modoru1()
     {
@@ -11680,7 +11659,6 @@ public class ChoiceMove : MonoBehaviour
 
         black.Update();
     }
-
 
 
 }

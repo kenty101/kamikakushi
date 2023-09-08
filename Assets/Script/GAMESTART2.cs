@@ -11,58 +11,28 @@ public class GAMESTART2 : MonoBehaviour
 
 
     [SerializeField] AudioClip clip;
-    [SerializeField] AudioClip eclip;
-
-    public GameObject koukoku;
-    AdmobLibrary admoblibrary;
-
+  
 
     // Start is called before the first frame update
     void Start()
     {
         var button = GetComponent<Button>();
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
-        admoblibrary = GameObject.Find("koukoku").GetComponent<AdmobLibrary>();
 
         button.onClick.AddListener(() =>
         {
             soundManager.PlaySe(clip);
-            kaku();
+
+            SceneManager.LoadScene("Meibo");
 
 
         });
         
     }
-    public void hiraku()
+
+    // Update is called once per frame
+    void Update()
     {
-
-        admoblibrary.ShowReward();
-
-        koukoku.SetActive(false);
-        Invoke("meibo",0.1f);
-    
-
-    }
-   
-
-    public void kaku()
-    {
-        soundManager.PlaySe(eclip);
-
-        koukoku.SetActive(true);
-
-    }
-    public void tojiru()
-    {
-        soundManager.PlaySe(eclip);
-
-        koukoku.SetActive(false);
-
-    }
-    public void meibo()
-    {
-        SceneManager.LoadScene("Meibo");
-
-
+        
     }
 }
